@@ -1,0 +1,58 @@
+<div class="newsletter">
+    <div class="container">
+
+        <!--First Name-->
+       <form class="form-horizontal" name="newsletterForm" novalidate>
+                <div class="form-group" ng-class="{'has-warning': newsletterForm.firstname.$error.required && newsletterForm.firstname.$touched}">
+                    <label for="firstname" class="control-label">First Name</label>
+                    <input type="text" class="form-control" name="firstname" id="firstname" ng-model="newsletterCtrl.newsletter.user.firstname" placeholder="First Name" required>
+                    <span class="form-helper-text" ng-if="newsletterForm.firstname.$error.required && newsletterForm.firstname.$touched">Please enter your first name.</span>
+                </div>
+          
+          <!--Last Name-->
+                <div class="form-group" ng-class="{'has-warning': newsletterForm.lastname.$error.required && newsletterForm.lastname.$touched}">
+                    <label for="lastname" class="control-label">Last name</label>
+                    <input type="text" class="form-control" name="lastname" id="lastname" ng-model="newsletterCtrl.newsletter.user.lastname" placeholder="Last Name" required>
+                    <span class="form-helper-text" ng-if="newsletterForm.lastname.$error.required && newsletterForm.lastname.$touched">Please enter your last name.</span>
+               </div>
+
+           <!--Email-->
+                <div class="form-group" ng-class="{'has-warning': (newsletterForm.email.$error.required) && newsletterForm.email.$touched}">
+                    <label for="email" class="control-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" ng-model="newsletterCtrl.newsletter.user.email" placeholder="Email" required>
+                    <span ng-if="newsletterForm.email.$error.required && newsletterForm.email.$invalid && newsletterForm.email.$touched">Please enter your email address.</span>
+                </div>
+            
+            <!--Phone Number-->
+                <div class="form-group" ng-class="{'has-warning': (newsletterForm.phonenumber.$error.required) && newsletterForm.phonenumber.$touched}">
+                    <label for="phonenumber" class="control-label">Phone #</label>
+                    <input type="number" class="form-control" name="phonenumber" id="phonenumber" 
+                    ng-model="newsletterCtrl.newsletter.user.phonenumber" placeholder="Phone #" required>
+                    <span ng-if="newsletterForm.phonenumber.$error.required && newsletterForm.phonenumber.$invalid && newsletterForm.phonenumber.$touched">Please enter your phone number.</span>
+                </div>
+            
+            <!--Menu Number-->
+                <div class="form-group" ng-class="{'has-warning': newsletterForm.menunumber.$error.required && newsletterForm.menunumber.$touched}">
+                    <label for="menunumber" class="control-label">Menu #</label>
+                    <input type="text" class="form-control" name="menunumber" id="menunumber" ng-model="newsletterCtrl.newsletter.menunumber" placeholder="Menu #" required>
+                    <span ng-if="newsletterForm.menunumber.$error.required && newsletterForm.menunumber.$touched">Please enter a menu number.</span>
+                    <span ng-if="newsletterForm.$submitted && newsletterCtrl.itemFound === false">No such menu number exists</span>
+                </div>
+
+        <!--Sign in button-->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button type="submit" ng-click="newsletterCtrl.submit()" ng-disabled="newsletterForm.$invalid" class="btn btn-default">Sign In</button>
+                        </div>
+            
+            <!--Save message-->
+                        <div class="col-md-6">
+                            <p class="text-right" ng-if="newsletterForm.$submitted && newsletterCtrl.itemFound && newsletterForm.$valid">Your information has been saved!</p>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+      </div>
+</div>
